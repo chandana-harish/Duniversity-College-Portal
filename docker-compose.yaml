@@ -1,9 +1,7 @@
-version: '3.8'
- 
+version: "3.8"
+
 services:
-
   uni-app-web:
-
     image: chandu554/duni:v1.1.0
     container_name: Retail-app12
     ports:
@@ -13,10 +11,11 @@ services:
     depends_on:
       - uni-mongodb
     networks:
-      - uni-network
- 
+      - frontend-net
+      - shared-net   # also connects to shared network to reach backend
+
   uni-mongodb:
-    image: mysql
+    image: mysql:8.0
     container_name: mysql-cont12
     ports:
       - "3306:3306"
@@ -25,11 +24,16 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - uni-network
- 
+      - backend-net
+      - shared-net   # also connects to shared network to talk to frontend
+
 volumes:
   mysql_data:
- 
+
 networks:
-  uni-network:
- 
+  frontend-net:
+    driver: bridge
+  backend-net:
+    driver: bridge
+  shared-net:
+    driver: bridge
