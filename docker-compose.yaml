@@ -12,7 +12,7 @@ services:
       - uni-mongodb
     networks:
       - frontend-net
-      - shared-net   # also connects to shared network to reach backend
+      - backend-net   # frontend joins both networks
 
   uni-mongodb:
     image: mysql:8.0
@@ -24,8 +24,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - backend-net
-      - shared-net   # also connects to shared network to talk to frontend
+      - backend-net   # backend only on backend-net
 
 volumes:
   mysql_data:
@@ -34,6 +33,4 @@ networks:
   frontend-net:
     driver: bridge
   backend-net:
-    driver: bridge
-  shared-net:
     driver: bridge
