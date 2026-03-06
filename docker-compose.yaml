@@ -1,0 +1,35 @@
+version: '3.8'
+ 
+services:
+
+  uni-app-web:
+
+    image: chandu554/duni:v1.1.0
+    container_name: Retail-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - uni-mongodb
+    networks:
+      - uni-network
+ 
+  uni-mongodb:
+    image: mysql
+    container_name: mysql-cont
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - uni-network
+ 
+volumes:
+  mysql_data:
+ 
+networks:
+  uni-network:
+ 
