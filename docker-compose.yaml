@@ -5,7 +5,7 @@ services:
   uni-app-web:
 
     image: chandu554/duni:v1.1.0
-    container_name: Retail-app
+    container_name: Retail-app12
     ports:
       - "3000:3000"
     env_file:
@@ -17,7 +17,7 @@ services:
  
   uni-mongodb:
     image: mysql
-    container_name: mysql-cont1
+    container_name: mysql-cont12
     ports:
       - "3306:3306"
     env_file:
