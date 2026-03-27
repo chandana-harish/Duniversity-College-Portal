@@ -56,13 +56,13 @@ spec:
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef: 
-                  name: duni-config 
+                  name: duni-configmap
                   key: DB_HOST
 
             - name: DB_PORT
               valueFrom:
                 configMapKeyRef: 
-                  name: duni-config 
+                  name: duni-configmap
                   key: DB_PORT
             - name: DB_USER
               valueFrom:
@@ -89,4 +89,4 @@ spec:
   ports:
   - targetPort: 3000
     port: 3001
-  type: NodePort
+  type: ClusterIP
