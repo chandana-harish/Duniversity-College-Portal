@@ -9,6 +9,6 @@ spec:
       storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: nfs-sc
+  storageClassName: nfs-csi
    
 
