@@ -22,10 +22,10 @@ spec:
         - name: mongo-cont 
           image: mongo 
           ports:
-            containerPort: 27017
+            - containerPort: 27017
           resources:
             requests: 
-              memory: "500Mi"
+              memory: "400Mi"
               cpu: "200m"
             limits:
               memory: "400Mi"
