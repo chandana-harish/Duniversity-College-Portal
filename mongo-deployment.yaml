@@ -19,10 +19,10 @@ spec:
         apps: uni
     spec: 
       containers:
-        - name: mongo-cont 
-          image: mongo 
+        - name: mysql-cont 
+          image: mysql:8.0
           ports:
-            - containerPort: 27017
+            - containerPort: 3306
           resources:
             requests: 
               memory: "400Mi"
@@ -57,12 +57,12 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: mongo-ser 
+  name: mysql-ser 
   namespace: chandana-ns
 spec:
   selector:
     apps: uni 
   ports:
-  - targetPort: 27017
-    port: 27017
+  - targetPort: 3306
+    port: 3306
   type: ClusterIP
