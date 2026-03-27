@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: duni-deploy 
+  namespace: chandana-ns 
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: duni
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template: 
+    metadata:
+      labels:
+        app: duni
+    spec: 
+      containers:
+        - name: duni-cont 
+          image: nimeshsv814/duniversity-portal:v1.1.0
+          ports:
+            containerPort: 3001
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "200m"
+            limits:
+              memory: "400Mi"
+              cpu: "200m"
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: duni-ser 
+  namespace: chandana-ns
+spec:
+  selector:
+    app: duni 
+  ports:
+  - targetPort: 3000
+    port: 3001
+  type: NodePort
