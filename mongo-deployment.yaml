@@ -31,7 +31,7 @@ spec:
               memory: "400Mi"
               cpu: "200m"
           env:
-            - name: MARIADB_ROOT_PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef: 
                   name: duni-sec
