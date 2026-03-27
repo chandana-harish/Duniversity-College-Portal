@@ -49,15 +49,20 @@ spec:
           volumeMounts:
             - name: mysql-storage
               mountPath: /var/lib/mysql
+            - name: mysql-q
+              mountPath: /docker-entrypoint-initdb.d
       volumes:
         - name: mysql-storage
           persistentVolumeClaim:
-            claimName: chandana-pvc   
+            claimName: chandana-pvc 
+        - name: mysql-q
+          configMap:
+            name: mysql-init  
 ---
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: mysql-ser 
+  name: mariadb
   namespace: chandana-ns
 spec:
   selector:

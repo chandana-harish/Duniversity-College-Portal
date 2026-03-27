@@ -17,6 +17,10 @@ metadata:
 data:
   DB_HOST: "mariadb"
   DB_PORT: "3306"
+  GRIEVANCE_DB: "grievance_db"
+  LEAVE_DB: "leave_db"
+  TIMETABLE_DB: "timetable_db"
+  EXAMS_DB: "exams_db"
 
 ---
 apiVersion: apps/v1
