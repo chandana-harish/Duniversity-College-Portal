@@ -5,9 +5,10 @@ metadata:
   namespace: chandana-ns 
 type: Opaque
 stringData:
-  MYSQL_ROOT_PASSWORD: "Root@123"
-  MYSQLDB_USER: "college_user"
-  MYSQLDB_PASSWORD: "deereddy@123"
+  MYSQL_ROOT_PASSWORD: Um9vdEAxMjM=
+  MYSQLDB_USER: Y29sbGVnZV91c2Vy
+  MYSQLDB_PASSWORD: ZGVlcmVkZHlAMTIz
+
 ---
 apiVersion: v1 
 kind: ConfigMap 
