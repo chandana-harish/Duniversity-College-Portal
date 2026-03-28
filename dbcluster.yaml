@@ -1,0 +1,10 @@
+apiVersion: mysql.oracle.com/v2
+kind: InnoDBCluster
+metadata:
+  name: my-mysql-cluster
+  namespace: chandana-ns
+spec:
+  instances: 3
+  secretName: mysql-secret
+  router:
+    instances: 1
