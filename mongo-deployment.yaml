@@ -9,7 +9,7 @@ spec:
   selector: 
     matchLabels:
       apps: uni
-  strategy:
+  updateStrategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
@@ -57,10 +57,10 @@ spec:
       - name: mysql-q
         configMap:
           name: mysql-init  
-      volumeClaimTemplates:
-      - metadata: # creating  pvc automatically no need of extra dynamicpvc file-no manual creation of pvc 
-      name: vct-chandana
-      spec:
+  volumeClaimTemplates:
+  - metadata: # creating  pvc automatically no need of extra dynamicpvc file-no manual creation of pvc 
+      name: mysql-storage
+    spec:
         accessModes: [ "ReadWriteOnce" ]
         storageClassName: "nfs-csi"
         resources:
