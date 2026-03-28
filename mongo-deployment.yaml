@@ -9,11 +9,8 @@ spec:
   selector: 
     matchLabels:
       apps: uni
-  updateStrategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+  
+    
   template: 
     metadata:
       labels:
