@@ -6,3 +6,10 @@ image:
   tag: v1.1.0
 ports:
   containerPort: 3000
+backend:
+  name: duni-back
+  replicaCount: 2
+  image: 
+    back-repository: mysql
+    back-tag: latest
+  
