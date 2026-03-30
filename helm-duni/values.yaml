@@ -16,7 +16,7 @@ mysqlservice:
   name: mariadb
   port: 3306
   targetPort: 3306
-frontendseervice:
+frontendservice:
   name: duni-ser 
   port: 3001
   targetPort: 3000

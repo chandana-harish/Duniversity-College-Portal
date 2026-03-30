@@ -73,7 +73,7 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: {{ .Values.mysqlservice.name}}
+  name: {{ .Values.mysqlservice.name }}
   namespace: chandana-ns
 spec:
   selector:
