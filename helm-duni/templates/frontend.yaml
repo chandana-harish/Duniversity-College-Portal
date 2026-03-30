@@ -86,12 +86,12 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: duni-ser 
+  name:  {{.Values.frontendservice.name}}
   namespace: chandana-ns
 spec:
   selector:
     app: duni 
   ports:
-  - targetPort: 3000
-    port: 3001
+  - targetPort: {{ .Values.frontendservice.targetPort }}
+    port: {{ .Values.frontendservice.port }}
   type: ClusterIP
