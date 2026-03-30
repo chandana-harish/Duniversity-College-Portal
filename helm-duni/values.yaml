@@ -12,4 +12,7 @@ backend:
   image: 
     backrepository: mysql
     backtag: latest
-  
+mysqlservice:
+  name: mariadb
+  port: 3306
+  targetPort: 3306

@@ -73,13 +73,13 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata:
-  name: mariadb
+  name: {{ Values.mysqlservice.name}}
   namespace: chandana-ns
 spec:
   selector:
     apps: uni 
   ports:
-  - targetPort: 3306
-    port: 3306
+  - targetPort: {{ .Values.mysqlservice.targetPort }}
+    port: {{ .Values.mysqlservice.port }}
   type: ClusterIP
   clusterIP: None
