@@ -13,15 +13,15 @@ stringData:
 apiVersion: v1 
 kind: ConfigMap 
 metadata:
-  name: duni-configmap 
+  name: {{ .Values.configMap.name}} 
   namespace: chandana-ns
 data:
-  DB_HOST: "mariadb"
-  DB_PORT: "3306"
-  GRIEVANCE_DB: "grievance_db"
-  LEAVE_DB: "leave_db"
-  TIMETABLE_DB: "timetable_db"
-  EXAMS_DB: "exams_db"
+  DB_HOST: {{ .Values.configMap.DB_HOST}} 
+  DB_PORT: {{ .Values.configMap.DB_PORT}} 
+  GRIEVANCE_DB: {{ .Values.configMap.GRIEVANCE_DB}} 
+  LEAVE_DB: {{ .Values.configMap.LEAVE_DB}} 
+  TIMETABLE_DB: {{ .Values.configMap.TIMETABLE_DB}} 
+  EXAMS_DB: {{ .Values.configMap.EXAMS_DB}} 
 
 ---
 apiVersion: apps/v1
