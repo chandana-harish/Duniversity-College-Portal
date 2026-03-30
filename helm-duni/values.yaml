@@ -22,9 +22,9 @@ frontendservice:
   targetPort: 3000
 configMap: 
   name: duni-configmap
-  DB_HOST: "mariadb"
-  DB_PORT: "3306"
-  GRIEVANCE_DB: "grievance_db"
-  LEAVE_DB: "leave_db"
-  TIMETABLE_DB: "timetable_db"
-  EXAMS_DB: "exams_db"
+  DBHOST: "mariadb"
+  DBPORT: "3306"
+  GRIEVANCEDB: "grievance_db"
+  LEAVEDB: "leave_db"
+  TIMETABLEDB: "timetable_db"
+  EXAMSDB: "exams_db"
