@@ -19,7 +19,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: mysql-cont 
-          image: {{ .Values.backend.image.back-repository }}:{{ .Values.backend.image.back-tag }}
+          image: {{ .Values.backend.image.backrepository }}:{{ .Values.backend.image.backtag }}
           ports:
             - containerPort: 3306
           resources:
