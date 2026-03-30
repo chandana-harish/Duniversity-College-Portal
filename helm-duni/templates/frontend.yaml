@@ -27,10 +27,10 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: duni-deploy 
+  name: {{ .Values.app.name }}
   namespace: chandana-ns 
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount}}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -47,9 +47,9 @@ spec:
     spec: 
       containers:
         - name: duni-cont 
-          image: nimeshsv814/duniversity-portal:v1.1.0
+          image: {{ .Values.image.repository}}: {{ .Values.image.tag}}
           ports:
-            - containerPort: 3001
+            - containerPort: {{ .Values.ports.containerPort}}
           resources:
             requests: 
               memory: "128Mi"

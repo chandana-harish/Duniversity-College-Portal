@@ -1,0 +1,8 @@
+app: 
+  name: duni-deploy 
+replicaCount: 2
+image:
+  repository: nimeshsv814/duniversity-portal
+  tag: v1.1.0
+ports:
+  containerPort: 3000
