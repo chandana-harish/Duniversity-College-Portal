@@ -47,9 +47,9 @@ spec:
     spec: 
       containers:
         - name: duni-cont 
-          image: {{ .Values.image.repository}}: {{ .Values.image.tag}}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
-            - containerPort: {{ .Values.ports.containerPort}}
+            - containerPort: {{ .Values.ports.containerPort }}
           resources:
             requests: 
               memory: "128Mi"
