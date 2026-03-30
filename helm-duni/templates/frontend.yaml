@@ -16,12 +16,12 @@ metadata:
   name: {{ .Values.configMap.name}} 
   namespace: chandana-ns
 data:
-  DB_HOST: {{ .Values.configMap.DBHOST}} 
-  DB_PORT: {{ .Values.configMap.DBPORT}} 
-  GRIEVANCE_DB: {{ .Values.configMap.GRIEVANCEDB}} 
-  LEAVE_DB: {{ .Values.configMap.LEAVEDB}} 
-  TIMETABLE_DB: {{ .Values.configMap.TIMETABLEDB}} 
-  EXAMS_DB: {{ .Values.configMap.EXAMSDB}} 
+  DB_HOST: "{{ .Values.configMap.DBHOST }}"
+  DB_PORT: "{{ .Values.configMap.DBPORT }}"
+  GRIEVANCE_DB: "{{ .Values.configMap.GRIEVANCEDB }}"
+  LEAVE_DB: "{{ .Values.configMap.LEAVEDB }}" 
+  TIMETABLE_DB: "{{ .Values.configMap.TIMETABLEDB }}" 
+  EXAMS_DB: "{{ .Values.configMap.EXAMSDB }}"
 
 ---
 apiVersion: apps/v1
