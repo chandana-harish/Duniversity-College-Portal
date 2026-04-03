@@ -4,12 +4,12 @@ metadata:
   name: raj-pod-access
   namespace: chandana-ns
 subjects:
-- kind: User
-  name: raj
-  apiGroup: rbac.authorization.k8s.io 
-- kind: ServiceAccount 
-  name: my-serviceaccount 
-  namespace: chandana-ns 
+  - kind: User
+    name: raj
+    apiGroup: rbac.authorization.k8s.io 
+  - kind: ServiceAccount 
+    name: my-serviceaccount 
+    namespace: chandana-ns 
 roleRef:
   kind: Role
   name: pod-reader-new
