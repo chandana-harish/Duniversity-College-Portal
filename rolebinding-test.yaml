@@ -5,7 +5,7 @@ metadata:
   namespace: chandana-ns
 subjects:
 - kind: Group
-  name: testing
+  name: testing-team
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
