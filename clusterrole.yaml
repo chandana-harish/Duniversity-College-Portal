@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+knd: ClusterRole 
+metadata: 
+  name: cluster-role 
+  
+rules:
+- apiGroups: [""]
+  resources: ["nodes","namespace","pods"]
+  verbs: ["get", "watch", "list"]
