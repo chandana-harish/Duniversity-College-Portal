@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role1 
 metadata: 
   namespace: chandana-ns 
-  name: pod-reader 
+  name: pod-reader-new 
 rules: 
 - apiGroups: [""] 
   resources: ["pods"]
