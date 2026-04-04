@@ -50,40 +50,50 @@ spec:
     spec: 
       # nodeSelector: 
       #   training: devops
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: training
+      #           operator: In
+      #           values:
+                
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+      #     - weight: 1
+      #       preference:
+      #         matchExpressions:
+      #         - key: training
+      #           operator: In
+      #           values:
+      #           - devops
+      #     - weight: 50
+      #       preference:
+      #         matchExpressions:
+      #         - key: training
+      #           operator: In
+      #           values:
+      #           - devops 
       affinity:
-        nodeAffinity:
+        podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: training
-                operator: In
-                values:
-                - devops 
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            preference:
+          - labelSelector:
               matchExpressions:
               - key: training
                 operator: In
                 values:
                 - devops
-          - weight: 50
-            preference:
-              matchExpressions:
-              - key: training
-                operator: In
-                values:
-                - devops 
-        affinity:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                - key: training
-                  operator: In
-                  values:
-                  - devops
-              topologyKey: "kubernetes.io/hostname"
+            topologyKey: topology.kubernetes.io/zone
+        # affinity:
+        #   podAntiAffinity:
+        #     requiredDuringSchedulingIgnoredDuringExecution:
+        #     - labelSelector:
+        #         matchExpressions:
+        #         - key: training
+        #           operator: In
+        #           values:
+        #           - devops
+        #       topologyKey: "kubernetes.io/hostname"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
