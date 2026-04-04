@@ -75,7 +75,7 @@ spec:
       #           values:
       #           - devops 
       affinity:
-        podAffinity:
+        podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
