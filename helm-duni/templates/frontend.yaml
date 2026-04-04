@@ -46,10 +46,34 @@ spec:
         app: duni
     
      
-
+    
     spec: 
       nodeSelector: 
         training: devops
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                - devops 
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: training
+                operator: In
+                values:
+                - devops
+          - weight: 50
+            preference:
+              matchExpressions:
+              - key: training
+                operator: In
+                values:
+                - devops
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
