@@ -79,10 +79,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: training
+              - key: apps
                 operator: In
                 values:
-                - devops
+                - uni
             topologyKey: topology.kubernetes.io/zone
         # affinity:
         #   podAntiAffinity:
