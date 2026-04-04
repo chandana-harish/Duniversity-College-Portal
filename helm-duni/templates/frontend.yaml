@@ -77,15 +77,13 @@ spec:
       affinity:
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: training
-                  operator: In
-                  values:
-                  - devops
-              topologyKey: topology.kubernetes.io/zone
+          - labelSelector:
+              matchExpressions:
+              - key: training
+                operator: In
+                values:
+                - devops
+            topologyKey: topology.kubernetes.io/zone
         # affinity:
         #   podAntiAffinity:
         #     requiredDuringSchedulingIgnoredDuringExecution:
