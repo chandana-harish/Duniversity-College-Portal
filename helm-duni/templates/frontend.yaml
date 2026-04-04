@@ -73,7 +73,17 @@ spec:
               - key: training
                 operator: In
                 values:
+                - devops 
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: training
+                operator: In
+                values:
                 - devops
+            topologyKey: "kubernetes.io/hostname"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
