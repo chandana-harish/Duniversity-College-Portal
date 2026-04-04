@@ -76,7 +76,7 @@ spec:
       #           - devops 
       affinity:
         podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
+          preferredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
               - key: training
