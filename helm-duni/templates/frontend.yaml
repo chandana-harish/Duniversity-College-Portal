@@ -44,7 +44,12 @@ spec:
     metadata:
       labels:
         app: duni
+    
+     
+
     spec: 
+      nodeSelector: 
+        training: devops
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
