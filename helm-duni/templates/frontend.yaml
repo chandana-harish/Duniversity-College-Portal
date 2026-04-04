@@ -75,7 +75,7 @@ spec:
       #           values:
       #           - devops 
       affinity:
-        podAffinity:
+        podAntiAffinity: #change here if u want podAntiAffinity
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
@@ -84,16 +84,7 @@ spec:
                 values:
                 - uni
             topologyKey: kubernetes.io/hostname
-        # affinity:
-        #   podAntiAffinity:
-        #     requiredDuringSchedulingIgnoredDuringExecution:
-        #     - labelSelector:
-        #         matchExpressions:
-        #         - key: training
-        #           operator: In
-        #           values:
-        #           - devops
-        #       topologyKey: "kubernetes.io/hostname"
+        
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
