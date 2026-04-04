@@ -83,7 +83,7 @@ spec:
                 operator: In
                 values:
                 - uni
-            topologyKey: topology.kubernetes.io/zone
+            topologyKey: topology.kubernetes.io/hostname
         # affinity:
         #   podAntiAffinity:
         #     requiredDuringSchedulingIgnoredDuringExecution:
