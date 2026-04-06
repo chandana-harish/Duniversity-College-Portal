@@ -13,7 +13,19 @@ spec:
       package k8sallowedrepos
 
       violation[{"msg": msg}] {
-        container := input.review.object.spec.containers[_]
+        container := input_containers[_]
         not startswith(container.image, "nginx")
-        msg := "Only nginx images are allowed"
+        msg := sprintf("Image %v is not allowed", [container.image])
+      }
+
+      # For Pods
+      input_containers[c] {
+        input.review.kind.kind == "Pod"
+        c := input.review.object.spec.containers[_]
+      }
+
+      # For Deployments
+      input_containers[c] {
+        input.review.kind.kind == "Deployment"
+        c := input.review.object.spec.template.spec.containers[_]
       }
