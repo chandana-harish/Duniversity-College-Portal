@@ -7,4 +7,6 @@ spec:
   - name: test
     image: busybox
     command: ["sleep", "3600"]
-  
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
