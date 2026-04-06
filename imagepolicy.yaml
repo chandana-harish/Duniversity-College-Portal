@@ -18,13 +18,13 @@ spec:
         msg := sprintf("Image %v is not allowed", [container.image])
       }
 
-      # For Pods
+      # Pod
       input_containers[c] {
         input.review.kind.kind == "Pod"
         c := input.review.object.spec.containers[_]
       }
 
-      # For Deployments
+      # Deployment
       input_containers[c] {
         input.review.kind.kind == "Deployment"
         c := input.review.object.spec.template.spec.containers[_]
