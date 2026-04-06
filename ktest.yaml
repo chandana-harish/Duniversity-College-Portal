@@ -1,0 +1,38 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: enforce-common-policy
+spec:
+  validationFailureAction: Enforce   # Enforce = deny
+  background: true
+  rules:
+ 
+  # ❌ Rule 1: Require resource limits
+  - name: require-resource-limits
+    match:
+      resources:
+        kinds:
+          - Pod
+    validate:
+      message: "Resource limits are required"
+      pattern:
+        spec:
+          containers:
+            - resources:
+                limits:
+                  cpu: "?*"
+                  memory: "?*"
+ 
+  # ❌ Rule 2: Block latest image
+  - name: block-latest-image
+    match:
+      resources:
+        kinds:
+          - Pod
+    validate:
+      message: "Using 'latest' image tag is not allowed"
+      pattern:
+        spec:
+          containers:
+            - image: "!*:latest"
+ 
