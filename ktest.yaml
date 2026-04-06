@@ -1,38 +1,42 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: enforce-common-policy
+  name: hardened-container-policy
 spec:
-  validationFailureAction: Enforce   # Enforce = deny
+  # Set to 'Audit' to test first, 'Enforce' to block immediately
+  validationFailureAction: Enforce
   background: true
   rules:
+    # Rule 1: Require Resource Limits
+    - name: check-resource-limits
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        message: "CPU and memory limits are required for all containers."
+        pattern:
+          spec:
+            containers:
+              - resources:
+                  limits:
+                    memory: "?*"
+                    cpu: "?*"
  
-  # ❌ Rule 1: Require resource limits
-  - name: require-resource-limits
-    match:
-      resources:
-        kinds:
-          - Pod
-    validate:
-      message: "Resource limits are required"
-      pattern:
-        spec:
-          containers:
-            - resources:
-                limits:
-                  cpu: "?*"
-                  memory: "?*"
- 
-  # ❌ Rule 2: Block latest image
-  - name: block-latest-image
-    match:
-      resources:
-        kinds:
-          - Pod
-    validate:
-      message: "Using 'latest' image tag is not allowed"
-      pattern:
-        spec:
-          containers:
-            - image: "!*:latest"
- 
+    # Rule 2: Disallow 'latest' tag
+    - name: check-image-tag
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        message: "Using the 'latest' image tag is prohibited. Please use a specific version."
+        pattern:
+          spec:
+            containers:
+              - image: "!*:latest" # Blocks any image ending in :latest
+            # Optional: Also check initContainers
+            =(initContainers):
+              - image: "!*:latest"
