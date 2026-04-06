@@ -88,7 +88,7 @@ spec:
       - key: "training"
         operator: "Equal"
         value: "devlopment"
-        effect: "Execute"
+        effect: "NoExecute"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
