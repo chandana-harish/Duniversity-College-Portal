@@ -3,8 +3,7 @@ kind: ClusterPolicy
 metadata:
   name: hardened-container-policy
 spec:
-  # Set to 'Audit' to test first, 'Enforce' to block immediately
-  validationFailureAction: Enforce
+  validationFailureAction: Audit
   background: true
   rules:
     # Rule 1: Require Resource Limits
