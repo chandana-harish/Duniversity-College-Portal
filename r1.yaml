@@ -13,7 +13,10 @@ spec:
   - name: nginx
 
     image: nginx:latest
-
+    securityContext:
+      runAsUser: 1000
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
     ports:
 
     - containerPort: 80
@@ -31,4 +34,5 @@ spec:
         memory: "512Mi"
 
         cpu: "200m"
+  
  
