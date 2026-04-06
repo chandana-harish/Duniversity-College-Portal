@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: test
-    image: nginx
+    image: nginxinc/nginx-unprivileged
     command: ["sleep", "3600"]
     securityContext:
       runAsNonRoot: true
