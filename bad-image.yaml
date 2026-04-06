@@ -7,3 +7,5 @@ spec:
   - name: test
     image: nginx
     command: ["sleep", "3600"]
+    securityContext:
+      runAsNonRoot: true
