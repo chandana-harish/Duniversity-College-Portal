@@ -88,7 +88,7 @@ spec:
       - key: "training"
         operator: "Equal"
         value: "devlopment"
-        effect: "PreferNoSchedule"
+        effect: "Execute"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
