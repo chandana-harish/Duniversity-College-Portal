@@ -48,8 +48,8 @@ spec:
      
     
     spec: 
-      # nodeSelector: 
-      #   training: devops
+      nodeSelector: 
+        training: devlopment
       # affinity:
       #   nodeAffinity:
       #     requiredDuringSchedulingIgnoredDuringExecution:
