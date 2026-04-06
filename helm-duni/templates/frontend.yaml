@@ -74,17 +74,21 @@ spec:
       #           operator: In
       #           values:
       #           - devops 
-      affinity:
-        podAffinity: #podAffinity if u want change it
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: apps
-                operator: In
-                values:
-                - uni
-            topologyKey: kubernetes.io/hostname
-      
+      # affinity:
+      #   podAffinity: #podAffinity if u want change it
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #         - key: apps
+      #           operator: In
+      #           values:
+      #           - uni
+      #       topologyKey: kubernetes.io/hostname
+      tolerations: 
+      - key: "training"
+        operator: "Equal"
+        value: "devlopment"
+        effect: "NoSchedule"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
