@@ -4,6 +4,6 @@ metadata:
   namespace: chandana-ns 
   name: pod-reader-new 
 rules: 
-- apiGroups: [""] 
-  resources: ["pods"]
-  verbs: ["get", "watch", "list","create","delete"]
+  - apiGroups: [""] 
+    resources: ["pods"]
+    verbs: ["get", "watch", "list","create","delete"]
