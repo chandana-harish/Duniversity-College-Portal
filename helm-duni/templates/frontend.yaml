@@ -48,8 +48,8 @@ spec:
      
     
     spec: 
-      nodeSelector: 
-        training: devops
+      # nodeSelector: 
+      #   training: devops
       # affinity:
       #   nodeAffinity:
       #     requiredDuringSchedulingIgnoredDuringExecution:
@@ -84,11 +84,11 @@ spec:
       #           values:
       #           - uni
       #       topologyKey: kubernetes.io/hostname
-      tolerations: 
-      - key: "training"
-        operator: "Equal"
-        value: "devlopment"
-        effect: "NoExecute"
+      # tolerations: 
+      # - key: "training"
+      #   operator: "Equal"
+      #   value: "devlopment"
+      #   effect: "NoExecute"
       containers:
         - name: duni-cont 
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

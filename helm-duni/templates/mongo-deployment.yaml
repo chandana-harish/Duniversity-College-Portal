@@ -17,11 +17,11 @@ spec:
         apps: uni
     spec: 
       
-      tolerations: 
-      - key: "training"
-        operator: "Equal"
-        value: "devlopment"
-        effect: "NoSchedule"
+      # tolerations: 
+      # - key: "training"
+      #   operator: "Equal"
+      #   value: "devlopment"
+      #   effect: "NoSchedule"
       terminationGracePeriodSeconds: 10
       containers:
         - name: mysql-cont 
