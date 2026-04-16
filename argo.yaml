@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/chandana-harish/Duniversity-College-Portal.git
-    targetRevision: main
+    targetRevision: master
     path: helm-duni
     helm:
       values: |
