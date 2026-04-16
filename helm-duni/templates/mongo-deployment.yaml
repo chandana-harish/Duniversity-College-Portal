@@ -59,7 +59,7 @@ spec:
       volumes:
       - name: mysql-q
         configMap:
-          name: mysql-init  
+          name: mariadb-init-script
   volumeClaimTemplates:
   - metadata: # creating  pvc automatically no need of extra dynamicpvc file-no manual creation of pvc 
       name: mysql-storage # same name as volumeMounts
