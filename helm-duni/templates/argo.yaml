@@ -15,7 +15,7 @@ spec:
           activeVersion: blue
   destination:
     server: https://180C48E2CB31D6D78FC21B5A77FCDB66.gr7.us-east-1.eks.amazonaws.com
-    namespace: duni
+    namespace: chandana-ns
   syncPolicy:
     automated:
       prune: true
