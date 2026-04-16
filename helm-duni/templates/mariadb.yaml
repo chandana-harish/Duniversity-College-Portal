@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mariadb-init-script
-  namespace: gateway-ns
+  namespace: chandana-ns
 data:
   init.sql: |
     -- Create databases
