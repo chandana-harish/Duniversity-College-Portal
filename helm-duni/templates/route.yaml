@@ -10,13 +10,13 @@ spec:
     - matches:
       - path:
           type: PathPrefix
-          value: /
+          value: /duniv
       filters:
         - type: URLRewrite
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefixMatch: /
+              replacePrefixMatch: /duniv
       backendRefs:
         - name: duni-ser
           port: 3001
