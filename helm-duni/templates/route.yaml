@@ -16,7 +16,7 @@ spec:
           urlRewrite:
             path:
               type: ReplacePrefixMatch
-              replacePrefixMatch: /duniv
+              replacePrefixMatch: /
       backendRefs:
         - name: duni-ser
           port: 3001
